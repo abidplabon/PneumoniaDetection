@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <title>Upload Image</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/update.css') }}">
+</head>
+<body>
+    <div class="upload-box">
+      <main>
+        <a class="fa fa-home" href="/">Home</a>
+        <section>
+          <h1>Pneumonia Detection</h1>
+          <h3>Upload an image to detect</h3>
+          <p>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                  Diagnosis for the following image is: <u><h3 style="color:MediumSeaGreen;">{{ messages[0] }}</h3></u><br>
+                  <img class="outputImage" src="{{ messages[1] }}" width="10">
+              {% else %}
+                <img id="output" src="static/images/Doctor.svg" width="200" />
+              {% endif %}
+            {% endwith %}
+          </p>
+        </main>
+      </section>
+        <form id="upload-form" action="/complete" method="POST" enctype="multipart/form-data">
+          <dl>
+            <input class="chooseButton" type="file" name="file" accept="image/*" autocomplete="off" onchange="loadImage(event)" required>
+    </dl>
+    <p>
+        <input class="buttontion" type="submit" name="submit" value="Submit">
+          <input class="buttontion" type="button" value="Back" onclick="history.back()">
+    </p>
+    </form>
+    </div>
+    <script>
+      var loadImage = function(event) {
+      var image = document.getElementById('output');
+      image.src = URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+  
+</body>
+</html>

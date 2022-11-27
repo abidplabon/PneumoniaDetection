@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Pnumonia Detection </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="google-site-verification" content="ruPP7Z-1iMcsvrbicR-wNJ79VHatSn1JepKnsDgSDlw" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    
+  </head>
+<body>
+  <header>
+	
+    <nav>
+      <div class="logo"> <h1 style="font-size: 20px;"></h1> </div>
+      <div class="menu">
+        <a href="#" style="font-size: "></a>
+        <a href="#"></a>
+        <a href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA" target="_blank"></a>
+        <a href="{{url_for('logout')}}" class="logout"></a>
+      </div>
+    </nav>
+    <main>
+      <section>
+        
+        <div>
+  <div class="containerDoctor">
+    
+  <div class="cna">
+    <label for="show" class="close-btn fas fa-times" onclick="history.back()"></label>
+    <a href="{{url_for('Index')}}" ><button class="buttonion">View All Record</button></a>
+      &nbsp
+      &nbsp
+      &nbsp
+    <a href="{{url_for('form')}}"><button class="buttonion">Enter a New Record</button></a>
+  </div>
+  </div>
+</div>
+</main>
+</section>
+  </header>
+</body>
+</html>

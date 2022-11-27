@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Login</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+          <div class="txt_field">
+            {{ form.username }}
+            <span></span>
+            <label>Username</label>
+          </div>
+          <div class="txt_field">
+            {{ form.password }}
+            <span></span>
+            <label>Password</label>
+          </div>
+          {{ form.submit }}
+          <div class="signup_link">
+            Not a member? <a href="#">Signup</a>
+          </div>
+        </form>
+      </div>
+
+    <!--<form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.username }}
+        {{ form.password }}
+        {{ form.submit }}
+    </form>
+
+    <a href="{{ url_for('register') }}">Don't have an account? Sign Up</a>-->
+</body>
+
+</html>
