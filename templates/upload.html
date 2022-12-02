@@ -18,12 +18,11 @@
     <!-- <label for="show" class="close-btn fas fa-times"></label> -->
     <!--<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" name="google-sheet">-->
     <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" name="google-sheet">
+      <a class="fa fa-home" href="/welcome">Home</a>
     <div class="content">
       <div class="left-side">
         <div class="address details">
-          <a class="navbar-brand" href="/welcome">Home</a>
       <div>
-        <a class="navbar-brand" href="/welcome">Home</a>
         <input id="file-picker" type="file" accept="image/*,*/dicom,.dcm, image/dcm, */dcm, .dicom" name="file" capture="camera" class="form-control"  onchange="loadFile(event)" required hidden/>
         <label id="file-picker" for="file-picker">Choose X-Ray*</label>
         <img id="output" width="200" />
@@ -96,10 +95,10 @@
           <input id="doctorname" type="text" name="doctorname" placeholder="Enter Refered Doctor name" class="form-control" required>
         </div>
         <div class="button">
-          <input type="submit" value="Upload!" onclick=confirmation()>
+          <input type="submit" value="Upload" onclick=confirmation()>
         </div>
         <div class="button">
-          <input type="button" value="Go back!" onclick="history.back()">
+          <input type="button" value="Back" onclick="history.back()">
           <div>
       </form>
     </div>

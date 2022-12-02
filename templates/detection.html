@@ -12,15 +12,16 @@
 <body>
     <div class="upload-box">
       <main>
-        <a class="fa fa-home" href="/">Home</a>
+        <a class="fa fa-home" href="/welcome">Home</a>
         <section>
           <h1>Pneumonia Detection</h1>
           <h3>Upload an image to detect</h3>
           <p>
             {% with messages = get_flashed_messages() %}
               {% if messages %}
-                  Diagnosis for the following image is: <u><h3 style="color:MediumSeaGreen;">{{ messages[0] }}</h3></u><br>
-                  <img class="outputImage" src="{{ messages[1] }}" width="10">
+                  Diagnosis for the following image is: <u><h3 style="color:MediumSeaGreen;">{{ messages[1] }}</h3></u><br>
+                  Confidence is: <u><h3 style="color:MediumSeaGreen;">{{ messages[0] }}</h3></u><br>
+                  <img class="outputImage" src="{{ messages[2] }}" width="10">
               {% else %}
                 <img id="output" src="static/images/Doctor.svg" width="200" />
               {% endif %}

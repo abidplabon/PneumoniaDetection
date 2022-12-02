@@ -179,10 +179,15 @@ def getPrediction(filename):
     
     #Convert prediction to class name
     pred = test(img_path)
+    accuracy = pred[0][1]*100
+    #confidence = float("{:.2f}".format(accuracy))
+    print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+    print(accuracy)
+    print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
     pred_class = classes[np.argmax(pred)]
     
     print("Diagnosis is:", pred_class)
-    return pred_class
+    return pred_class,accuracy
 
 
 from PIL import Image

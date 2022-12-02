@@ -293,9 +293,10 @@ def confirmPage(imageid):
         if data[i]["imageid"]==imageid:
             record = data[i]
             full_filename = record['ID']
-            print(full_filename)
+            imageFetch=full_filename + ".jpg"
+            print(imageFetch)
     jsonFile.close()
-    return render_template('confirm.html',data= record,user=full_filename)
+    return render_template('confirm.html',data= record,user=imageFetch)
     #return render_template('confirm.html')
     
 @app.route('/DiagnosisConfirmed/<string:imageid>',methods=['POST'])
@@ -312,7 +313,7 @@ def diagnosisConfirmed(imageid):
         print(clinicname)
         imageid     = request.form.get('imageid')
         print(imageid)
-        type        = request.form.get('type')
+        diagnosis_selectbox        = request.form.get('diagnosis_selectbox')
         print(type)
         date        = request.form.get('date')
         print(date)
@@ -328,7 +329,7 @@ def diagnosisConfirmed(imageid):
                 print("data deleted")
                 break
                 
-        entry={"ID":ID,"paitentname":paitentname,"gender":gender,"patientage":patientage,"clinicname":clinicname,"imageid":imageid,"type":type,"date":date,"doctorname":doctorname}
+        entry={"ID":ID,"paitentname":paitentname,"gender":gender,"patientage":patientage,"clinicname":clinicname,"imageid":imageid,"type":diagnosis_selectbox,"date":date,"doctorname":doctorname}
         data.append(entry)
         with open('pneumoniadatacollection.json', 'w') as f:
             f.write(json.dumps(data, indent=9, separators=(',', ': ')))
@@ -349,7 +350,10 @@ def complete():
             destination = os.path.join(app.config['UPLOAD_FOLDER'],filename) 
             file.save(destination)
             label = getPrediction(filename)
-            flash(label)
+            print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+            flash(label[1])
+            print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+            flash(label[0])
             full_filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             flash(full_filename)
             return render_template('detection.html')
